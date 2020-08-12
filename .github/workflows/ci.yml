@@ -17,12 +17,12 @@ jobs:
         run: npm install
 
       - name: Run test
-        run: react-scripts build
+        run: npm run test
         env:
           CI: true
 
       - name: Run build
-        run: react-scripts build
+        run: npm run build
 
       - name: Run lint
         run: npm run lint
