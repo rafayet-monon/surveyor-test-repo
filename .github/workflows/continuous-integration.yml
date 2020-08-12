@@ -1,0 +1,25 @@
+name: Continuous Integration
+
+on: [pull_request]
+
+jobs:
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install node packages
+        run: npm install
+
+      - name: Run test
+        run: npm run test
+        env:
+          CI: true
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run build
+        run: npm run build
