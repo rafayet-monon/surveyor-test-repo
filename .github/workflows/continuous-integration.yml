@@ -1,12 +1,9 @@
-name: CI
+name: Continuous Integration
 
-on:
-  push:
-    branches:
-      - feature/github-actions-heroku
+on: [pull_request]
 
 jobs:
-  staging-build:
+  build-and-test:
 
     runs-on: ubuntu-latest
 
@@ -26,6 +23,3 @@ jobs:
 
       - name: Run build
         run: npm run build
-
-      - name: Deploy to Heroku
-        run: git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_APP }}.git origin/feature/github-actions-heroku:master
