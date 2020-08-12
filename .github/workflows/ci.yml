@@ -6,33 +6,29 @@ on:
       - feature/github-actions-heroku
 
 jobs:
-  build:
+  staging-build:
 
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
 
-      - name: yarn install
-        run: |
-          yarn install
-      - name: yarn test
-        run: |
-          yarn test
+      - name: Install node packages
+        run: npm install
+
+      - name: Run test
+        run: react-scripts build
         env:
           CI: true
 
-      - name: yarn build
-        run: |
-          yarn run build --if-present
+      - name: Run build
+        run: react-scripts build
 
-      - name: Add remote origin
-        run: |
-          git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_APP }}.git
+      - name: Run lint
+        run: npm run lint
+
+      - name: Add Heroku remote origin
+        run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_APP }}.git
+
       - name: Deploy to Heroku
-        run: |
-          git push -f https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_STAGING_APP }}.git origin/feature/github-actions-heroku:master
+        run: git push -f origin/feature/github-actions-heroku:master
