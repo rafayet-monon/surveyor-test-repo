@@ -1,68 +1,52 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SURVEYOR
+![Continuous Integration](https://github.com/rafayet-monon/surveyor/workflows/Continuous%20Integration/badge.svg)
+![Continuous Deployment](https://github.com/rafayet-monon/surveyor/workflows/Continuous%20Deployment/badge.svg)
 
-## Available Scripts
 
-In the project directory, you can run:
+## [Production](https://nimble-surveyor.herokuapp.com/) || [Staging](https://nimble-surveyor-staging.herokuapp.com/)
 
-### `yarn start`
+## [Project Board](https://github.com/rafayet-monon/surveyor/projects/1)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation and Setup Instructions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You will need `node` and `npm` installed globally on your machine.  
+Built using `node-14.6.0` and `npm-6.14.6`
 
-### `yarn test`
+Install packages: `npm install`  
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run test suite:  `npm test`  
 
-### `yarn build`
+To start server: `npm start`  
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To visit app locally: [localhost:3000](localhost:3000)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To lint code: `npm run lint`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To format code: `npm run format`
 
-### `yarn eject`
+## Deployment
+This project uses `Github Actions` for `CI/CD` and deploys to `heroku`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+It has two deployment environment - `production` & `staging`. It uses `master`
+branch for `production` and `staging` branch for `staging` deployment. So this project uses
+two different apps on `heroku`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To create `heroku` apps install Heroku CLI and go to project folder to run the following commands.
+Or projects can also be created in Heroku website.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For Production: 
+```
+heroku create production_app_name --remote production --buildpack mars/create-react-app
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+For Staging: 
+```
+heroku create staging_app_name --remote staging --buildpack mars/create-react-app
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Then in Github Project Secrets configure the following secrets
+```
+HEROKU_API_KEY: api key from heroku account's settings
+HEROKU_STAGING_APP: staging_app_name
+HEROKU_PRODUCTION_APP: production_app_name
+```
