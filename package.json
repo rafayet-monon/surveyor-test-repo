@@ -20,8 +20,8 @@
     "test": "react-scripts test --outputFile test-results.json --json",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet; exit 0",
-    "stylelint": "stylelint '**/*.scss'; exit 0",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "stylelint": "stylelint '**/*.scss'",
     "danger": "yarn danger ci"
   },
   "eslintConfig": {
