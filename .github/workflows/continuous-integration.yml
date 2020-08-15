@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI
 
 on: [pull_request]
 
@@ -13,10 +13,18 @@ jobs:
       - name: Install node packages
         run: npm install
 
+      - name: Run Eslint
+        run: npm run lint
+
+      - name: Run SASS lint
+        run: npm run stylelint
+
       - name: Run test
         run: npm run test
         env:
           CI: true
-
-      - name: Run lint
-        run: npm run lint
+      - name: Run Danger
+        run: npm run danger
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }}
+          CI: true
