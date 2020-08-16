@@ -22,7 +22,7 @@
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --output-file ./eslint-output.log -f table",
     "stylelint": "stylelint '**/*.scss'",
-    "danger": "npx danger pr https://github.com/rafayet-monon/surveyor/pull/1 "
+    "danger": "npx danger ci"
   },
   "eslintConfig": {
     "extends": "react-app"
