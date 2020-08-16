@@ -7,9 +7,17 @@ const stylelint = require('danger-plugin-stylelint')
 const esLintFile = "eslint-output.json";
 const esLinterOutput = fs.readFileSync(esLintFile).toString();
 const esLintJson = JSON.parse(esLinterOutput);
-console.log(esLintJson)
+
 if (Object.keys(esLintJson).length !== 0) {
-  fail('ES Lint did not pass');
+  for (let i = 0; i < esLintJson.length; i++) {
+    let lint_obj = esLintJson[i];
+    let file_path = lint_obj.filePath;
+    let line_no = lint_obj.messages[0].line;
+    let danger_message = lint_obj.messages[0].message;
+
+    let full_message = `Path: ${file_path} - Line: ${line_no} - message: ${danger_message}`;
+    fail(full_message);
+  }
 }
 
 jest.default();
