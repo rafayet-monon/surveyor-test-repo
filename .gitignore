@@ -25,3 +25,4 @@ yarn-error.log*
 **/**/.sass-cache/
 .env
 test-results.json
+eslint-output.log
