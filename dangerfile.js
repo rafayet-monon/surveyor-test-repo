@@ -1,6 +1,7 @@
 const {danger, fail, message, warn, markdown} =  require("danger")
 const fs = require("fs")
 const jest = require('danger-plugin-jest/dist/index.js')
+const stylelint = require('danger-plugin-stylelint')
 
 
 const esLintFile = "eslint-output.json";
@@ -12,3 +13,4 @@ if (Object.keys(esLintJson).length !== 0) {
 }
 
 jest.default();
+stylelint.default();
