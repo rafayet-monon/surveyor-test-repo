@@ -20,7 +20,7 @@
     "test": "react-scripts test --outputFile test-results.json --json",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --output-file ./eslint-output.log -f table",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --output-file ./eslint-output.log -f compact",
     "stylelint": "stylelint '**/*.scss'",
     "danger": "npx danger ci"
   },
