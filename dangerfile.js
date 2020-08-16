@@ -16,7 +16,7 @@ if (Object.keys(esLintJson).length !== 0) {
     let danger_message = lint_obj.messages[0].message;
 
     let full_message = `Path: ${file_path} - Line: ${line_no} - message: ${danger_message}`;
-    fail(full_message);
+    fail(`Eslint Failure: ${full_message}`);
   }
 }
 
