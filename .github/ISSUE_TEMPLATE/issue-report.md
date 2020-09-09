@@ -1,3 +1,12 @@
+---
+name: Issue Report
+about: Custom
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 ## The problem
 
 Briefly describe the issue you are experiencing, or the feature you want to see, or what you think can be better.
