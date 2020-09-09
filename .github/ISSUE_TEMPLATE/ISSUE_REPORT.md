@@ -9,4 +9,4 @@ If necessary, describe the problem you have been experiencing in more detail.
 
 ## Screenshot(s)
 
-Add some screenshot if possible.
+Add some screenshot, gif if possible.
