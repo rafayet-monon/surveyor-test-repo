@@ -1,7 +1,7 @@
 ---
 name: Issue Report
 about: Describe your problems or expectations
-title: 'Issue Title'
+title: Issue Title
 labels: ''
 assignees: ''
 
