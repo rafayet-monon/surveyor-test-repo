@@ -6,7 +6,6 @@ on:
     branches:
       - master
       - development
-
 jobs:
   build-and-test:
 
@@ -19,9 +18,15 @@ jobs:
         run: npm install
 
       - name: Run test
+        if: always()
         run: npm run test
         env:
           CI: true
 
       - name: Run lint
+        if: always()
+        run: npm run lint
+
+      - name: Run lint 2
+        if: always() && github.ref != 'refs/heads/development' && github.ref != 'refs/heads/master'
         run: npm run lint
