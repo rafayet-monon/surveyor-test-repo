@@ -6,7 +6,6 @@ on:
     branches:
       - master
       - development
-      - test-ci-push
 jobs:
   build-and-test:
 
