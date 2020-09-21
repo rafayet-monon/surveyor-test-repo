@@ -29,5 +29,5 @@ jobs:
         run: npm run lint
 
       - name: Run lint 2
-        if: always()
+        if: always() && github.event_name == 'pull_request'
         run: npm run lint
