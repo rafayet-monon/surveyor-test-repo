@@ -1,7 +1,12 @@
 name: Continuous Integration
 
-on: [pull_request]
-
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - development
+      - test-ci-push
 jobs:
   build-and-test:
 
@@ -14,9 +19,15 @@ jobs:
         run: npm install
 
       - name: Run test
+        if: always()
         run: npm run test
         env:
           CI: true
 
       - name: Run lint
+        if: always()
+        run: npm run lint
+
+      - name: Run lint 2
+        if: github.event_name == 'pull_request'
         run: npm run lint
